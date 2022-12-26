@@ -1,0 +1,26 @@
+<!-- 大连交通大学-谭广志-1818120115-->
+<!-- 外国语学院-->
+<!-- 版权所有-->
+
+<div class th:fragment="html">
+    <a th:href="${application.contextPath}">
+        <img id="logo" src="img/site/logo2.gif" class="logo">
+    </a>
+    <a th:href="${application.contextPath}">
+        <img id="logo" src="img/site/logo3.gif" class="logo2">
+<!--        <div class="logo2"></div>-->
+    </a>
+    <form action="search" method="get" >
+        <div class="searchDiv">
+            <input name="keyword" type="text" placeholder="JAVA  肖四政治 ">
+            <button  type="submit" class="searchButton">搜小二</button>
+            <div class="searchBelow">
+				<span th:each="c,status: ${application.categories_below_search}" th:if="${status.index>=5 && status.index<=8}">
+					<a th:href="@{'category?cid='+${c.id}}" th:text="${c.name}" ></a>
+					<span th:if="${status.index!=8}">|</span>
+	            </span>
+
+            </div>
+        </div>
+    </form>
+</div>
